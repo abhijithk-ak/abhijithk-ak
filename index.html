@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abhijith K. — Frontend & AI Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Abhijith K — junior frontend & AI full-stack developer, 2026 graduate." />
+
+<!-- Fonts: Sora (display) + Inter (body) + IBM Plex Mono (labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN, utility classes only) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- AOS for restrained scroll reveals -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:        #101114;  /* graphite */
+    --surface:   #17181D;  /* card / panel */
+    --border:    #262830;  /* hairline */
+    --ink:       #ECEDF0;  /* primary text */
+    --ink-dim:   #93969E;  /* secondary text */
+    --indigo:    #6C7BFF;  /* primary accent — code / tech */
+    --indigo-soft:#6C7BFF1A;
+    --gold:      #C9A227;  /* secondary accent — graduate / milestone */
+    --gold-soft: #C9A2271A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .font-display{ font-family:'Sora', ui-sans-serif, sans-serif; }
+  .font-mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+  /* preloader — quiet fade, no bounce */
+  #preloader{
+    position:fixed; inset:0; z-index:100; background:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity .5s ease, visibility .5s ease;
+  }
+  #preloader.hide{ opacity:0; visibility:hidden; }
+  .preload-dot{
+    width:6px; height:6px; border-radius:9999px; background:var(--ink-dim);
+  }
+  .preload-dot.active{ background:var(--gold); }
+
+  /* top scroll-progress rule — the one signature motif */
+  #progress-bar{
+    position:fixed; top:0; left:0; height:2px; width:0%; z-index:60;
+    background:var(--gold);
+    transition:width .08s linear;
+  }
+
+  .card{
+    background:var(--surface); border:1px solid var(--border);
+    transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .card:hover{
+    border-color:#3a3d47; transform:translateY(-3px);
+    box-shadow:0 12px 30px -12px rgba(0,0,0,.45);
+  }
+
+  .btn-primary{ transition:transform .25s ease, background-color .25s ease; }
+  .btn-primary:hover{ transform:translateY(-1px); }
+
+  .btn-outline{ transition:border-color .25s ease, color .25s ease; }
+
+  /* photo placeholder — calm, no scan animation */
+  .photo-slot{
+    position:relative; border-radius:1rem;
+    border:1px solid var(--border);
+    background:linear-gradient(160deg, #15161B 0%, #101114 100%);
+  }
+  .photo-slot::before{
+    content:"";
+    position:absolute; inset:0; border-radius:1rem;
+    background-image: linear-gradient(to right, #ffffff08 1px, transparent 1px),
+                       linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+
+  .tag-dot{ width:6px; height:6px; border-radius:9999px; }
+
+  ::selection{ background:var(--indigo); color:#0B0C10; }
+  input:focus, textarea:focus{ outline:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    [data-aos]{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PRELOADER ================= -->
+<div id="preloader">
+  <div class="flex items-center gap-2">
+    <span class="preload-dot active"></span>
+    <span class="preload-dot"></span>
+    <span class="preload-dot"></span>
+  </div>
+</div>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div id="progress-bar"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 flex justify-between items-center py-5">
+    <a href="#home" class="font-display font-semibold text-lg tracking-tight text-[var(--ink)]">
+      Abhijith<span class="text-[var(--gold)]">.</span>K
+    </a>
+
+    <div class="hidden md:flex items-center gap-9 font-mono text-xs tracking-wide text-[var(--ink-dim)]">
+      <a href="#home" class="hover:text-[var(--ink)] transition-colors">Home</a>
+      <a href="#about" class="hover:text-[var(--ink)] transition-colors">About</a>
+      <a href="#projects" class="hover:text-[var(--ink)] transition-colors">Projects</a>
+      <a href="#contact" class="hover:text-[var(--ink)] transition-colors">Contact</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener"
+         class="btn-outline px-5 py-2 rounded-full border border-[var(--border)] text-[var(--ink)] font-mono text-xs hover:border-[var(--ink-dim)] transition-colors">
+        GitHub ↗
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden text-[var(--ink)] p-2">
+      <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--bg)]/98 border-b border-[var(--border)]">
+    <div class="flex flex-col px-6 py-4 gap-4 font-mono text-sm text-[var(--ink-dim)]">
+      <a href="#home" class="border-b border-[var(--border)] pb-3">Home</a>
+      <a href="#about" class="border-b border-[var(--border)] pb-3">About</a>
+      <a href="#projects" class="border-b border-[var(--border)] pb-3">Projects</a>
+      <a href="#contact" class="pb-1">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative w-full min-h-screen flex items-center pt-32 pb-20 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+
+    <!-- Text -->
+    <div>
+      <div data-aos="fade-up" class="inline-flex items-center gap-2 font-mono text-xs tracking-wide text-[var(--gold)] border border-[var(--gold)]/25 rounded-full px-4 py-1.5 mb-8 bg-[var(--gold-soft)]">
+        Class of 2026 · Graduate
+      </div>
+
+      <h1 data-aos="fade-up" data-aos-delay="80" class="font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.12] tracking-tight mb-6">
+        Frontend developer,<br/>
+        growing into <span class="text-[var(--indigo)]">AI full-stack</span>.
+      </h1>
+
+      <p data-aos="fade-up" data-aos-delay="160" class="text-[var(--ink-dim)] text-base md:text-lg max-w-lg mb-10 leading-relaxed">
+        I'm Abhijith K, a recent graduate working as a junior frontend and
+        AI full-stack developer. I build clean React interfaces and connect
+        them to AI-powered backends — and every so often, to hardware.
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="240" class="flex flex-wrap items-center gap-4">
+        <a href="#projects" class="btn-primary px-6 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm hover:bg-[#8290ff] transition-colors">
+          View Projects
+        </a>
+        <a href="#contact" class="btn-outline px-6 py-3 rounded-full border border-[var(--border)] text-[var(--ink)] font-semibold text-sm hover:border-[var(--ink-dim)] transition-colors">
+          Get In Touch
+        </a>
+      </div>
+
+      <div data-aos="fade-up" data-aos-delay="320" class="flex gap-10 mt-14 font-mono">
+        <div>
+          <div class="text-xl font-medium text-[var(--ink)]">2026</div>
+          <div class="text-xs text-[var(--ink-dim)] mt-1">Graduate</div>
+        </div>
+        <div>
+          <div class="text-xl font-medium text-[var(--ink)]">React</div>
+          <div class="text-xs text-[var(--ink-dim)] mt-1">+ AI full-stack</div>
+        </div>
+        <div>
+          <div class="text-xl font-medium text-[var(--ink)]">3+</div>
+          <div class="text-xs text-[var(--ink-dim)] mt-1">Shipped projects</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo placeholder -->
+    <div data-aos="fade-up" data-aos-delay="120" class="relative mx-auto w-full max-w-sm">
+      <div class="photo-slot aspect-[4/5] w-full flex flex-col items-center justify-center text-center p-8">
+        <svg class="w-11 h-11 text-[var(--ink-dim)] mb-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.174C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.174 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+        </svg>
+        <p class="relative z-10 font-mono text-xs text-[var(--ink-dim)]">Add your photo</p>
+        <p class="relative z-10 font-mono text-[10px] mt-1 text-[var(--ink-dim)]/60">replace &lt;div class="photo-slot"&gt; with an &lt;img&gt;</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+
+    <!-- quiet fact panel, no terminal gimmick -->
+    <div data-aos="fade-up">
+      <div class="card rounded-2xl p-7">
+        <div class="font-mono text-xs text-[var(--ink-dim)] mb-6">01 — Snapshot</div>
+        <dl class="space-y-5">
+          <div>
+            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Role</dt>
+            <dd class="text-sm text-[var(--ink)]">Junior Frontend / AI Full-Stack Developer</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Status</dt>
+            <dd class="text-sm text-[var(--ink)]">2026 graduate, open to full-time roles</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Core stack</dt>
+            <dd class="text-sm text-[var(--ink)]">React · TypeScript · Node.js · MongoDB</dd>
+          </div>
+          <div>
+            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Also comfortable in</dt>
+            <dd class="text-sm text-[var(--ink)]">Flask · C++ / ESP32</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <!-- copy + skill badges -->
+    <div data-aos="fade-up" data-aos-delay="100">
+      <div class="font-mono text-xs text-[var(--gold)] mb-4">About</div>
+      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-6 leading-tight">
+        Early career, real projects, a frontend-first mindset.
+      </h2>
+      <p class="text-[var(--ink-dim)] leading-relaxed mb-5 max-w-xl">
+        I'm a junior developer who builds interfaces first and works down the
+        stack from there. My recent work includes an AI-scored mock interview
+        platform, a smart task manager with automatic prioritization, and a
+        companion robot that expresses mood through its own lighting and
+        facial animation.
+      </p>
+      <p class="text-[var(--ink-dim)] leading-relaxed mb-10 max-w-xl">
+        Having just graduated, I'm looking for a full-time role where I can
+        keep building polished frontends and grow steadily into AI-driven
+        full-stack work.
+      </p>
+
+      <div class="flex flex-wrap gap-2.5">
+        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">React</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">TypeScript</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Tailwind CSS</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Node.js</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Flask</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">MongoDB</span>
+        <span class="px-4 py-2 rounded-full border border-[var(--gold)]/25 font-mono text-xs text-[var(--gold)] bg-[var(--gold-soft)]">C++ / ESP32</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
+  <div class="max-w-6xl mx-auto">
+    <div data-aos="fade-up" class="mb-14 max-w-2xl">
+      <div class="font-mono text-xs text-[var(--gold)] mb-4">02 — Selected work</div>
+      <h2 class="font-display font-semibold text-3xl md:text-4xl leading-tight mb-4">Projects worth a closer look</h2>
+      <p class="text-[var(--ink-dim)] leading-relaxed">Pulled straight from my GitHub — an AI interview platform, a smart task manager, and a robot with feelings.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <!-- Project 1 -->
+      <a href="https://github.com/abhijithk-ak/InterviewAce_v1.0" target="_blank" rel="noopener"
+         data-aos="fade-up" data-aos-delay="80"
+         class="card group relative flex flex-col rounded-2xl p-7">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="tag-dot bg-[var(--indigo)]"></span>
+          <span class="font-mono text-xs text-[var(--ink-dim)]">AI Platform</span>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">InterviewAce</h3>
+        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
+          A research-grade AI mock-interview platform that scores answers
+          across 13+ technical domains with a hybrid NLP + ML pipeline, with
+          an analytics dashboard built for real evaluation.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Node.js</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">TypeScript</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
+        </div>
+        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
+          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </span>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="https://github.com/abhijithk-ak/TaskPilot" target="_blank" rel="noopener"
+         data-aos="fade-up" data-aos-delay="160"
+         class="card group relative flex flex-col rounded-2xl p-7">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="tag-dot bg-[var(--indigo)]"></span>
+          <span class="font-mono text-xs text-[var(--ink-dim)]">Web App</span>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">TaskPilot</h3>
+        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
+          An AI-assisted task manager that automatically prioritizes what
+          matters, pairs a Flask service with a full-stack React app, and
+          keeps navigation fast and unobtrusive.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Flask</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Express</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
+        </div>
+        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
+          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </span>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="https://github.com/abhijithk-ak/ZEN_BOT" target="_blank" rel="noopener"
+         data-aos="fade-up" data-aos-delay="240"
+         class="card group relative flex flex-col rounded-2xl p-7">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="tag-dot bg-[var(--gold)]"></span>
+          <span class="font-mono text-xs text-[var(--ink-dim)]">Robotics</span>
+        </div>
+        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--gold)] transition-colors">ZEN_BOT</h3>
+        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
+          An ESP32-based companion robot with its own emotion engine —
+          animated eyes, facial expressions, and mood lighting, driven by a
+          custom mode and state manager written in C++.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">C++</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">ESP32</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Robotics</span>
+          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Embedded</span>
+        </div>
+        <span class="font-mono text-xs text-[var(--gold)] inline-flex items-center gap-1">
+          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </span>
+      </a>
+
+    </div>
+
+    <div data-aos="fade-up" class="mt-12 text-center">
+      <a href="https://github.com/abhijithk-ak?tab=repositories" target="_blank" rel="noopener"
+         class="font-mono text-xs text-[var(--ink-dim)] hover:text-[var(--ink)] transition-colors">
+        See all repositories on GitHub →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
+  <div class="max-w-3xl mx-auto">
+    <div data-aos="fade-up" class="mb-12">
+      <div class="font-mono text-xs text-[var(--gold)] mb-4">03 — Get in touch</div>
+      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4">Let's build something together.</h2>
+      <p class="text-[var(--ink-dim)] leading-relaxed max-w-xl">
+        Have a role, a project, or just want to talk frontend and AI? Send a
+        message and I'll get back to you.
+      </p>
+    </div>
+
+    <form id="contact-form" data-aos="fade-up" data-aos-delay="80" class="grid md:grid-cols-2 gap-x-8 gap-y-7">
+      <div>
+        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Name</label>
+        <input id="cf-name" required type="text" placeholder="Your name"
+          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+      </div>
+      <div>
+        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Email</label>
+        <input id="cf-email" required type="email" placeholder="you@example.com"
+          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+      </div>
+      <div class="md:col-span-2">
+        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Message</label>
+        <textarea id="cf-message" required rows="3" placeholder="What are you building?"
+          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50 resize-none"></textarea>
+      </div>
+      <div class="md:col-span-2 flex items-center justify-between flex-wrap gap-6 mt-2">
+        <div class="flex gap-5 font-mono text-xs text-[var(--ink-dim)]">
+          <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
+          <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">Email</a>
+        </div>
+        <button type="submit"
+          class="btn-primary px-7 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm inline-flex items-center gap-2 hover:bg-[#8290ff] transition-colors">
+          Send Message
+          <span>→</span>
+        </button>
+      </div>
+      <p id="cf-status" class="md:col-span-2 font-mono text-xs text-[var(--ink-dim)] hidden"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="w-full border-t border-[var(--border)] py-8 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-xs text-[var(--ink-dim)]">
+    <span>© 2026 Abhijith K.</span>
+    <div class="flex gap-6">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
+      <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">ak.abhijithk@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 700, once: true, easing: 'ease-out' });
+
+  // preloader
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('hide'), 300);
+  });
+
+  // navbar background on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
+    } else {
+      navbar.classList.remove('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
+    }
+  });
+
+  // mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.style.maxHeight = menuOpen ? mobileMenu.scrollHeight + 'px' : '0px';
+    iconOpen.classList.toggle('hidden', menuOpen);
+    iconClose.classList.toggle('hidden', !menuOpen);
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.style.maxHeight = '0px';
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }));
+
+  // top scroll-progress bar
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgress(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress);
+  updateProgress();
+
+  // contact form: opens the visitor's email client with a pre-filled message
+  // addressed to ak.abhijithk@gmail.com — no backend/server required.
+  const YOUR_EMAIL = 'ak.abhijithk@gmail.com';
+  const cfForm = document.getElementById('contact-form');
+  const cfStatus = document.getElementById('cf-status');
+  if (cfForm) {
+    cfForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+
+      const subject = `Portfolio contact from ${name || 'a visitor'}`;
+      const body = `${message}\n\n— ${name} (${email})`;
+      const mailtoLink = `mailto:${YOUR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoLink;
+
+      cfStatus.textContent = 'Opening your email app to send this — if nothing happens, email me directly instead.';
+      cfStatus.classList.remove('hidden');
+    });
+  }
+</script>
+</body>
+</html>
