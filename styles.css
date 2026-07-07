@@ -1,0 +1,77 @@
+:root{
+  --bg:        #101114;  /* graphite */
+  --surface:   #17181D;  /* card / panel */
+  --border:    #262830;  /* hairline */
+  --ink:       #ECEDF0;  /* primary text */
+  --ink-dim:   #93969E;  /* secondary text */
+  --indigo:    #6C7BFF;  /* primary accent — code / tech */
+  --indigo-soft:#6C7BFF1A;
+  --gold:      #C9A227;  /* secondary accent — graduate / milestone */
+  --gold-soft: #C9A2271A;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.font-display{ font-family:'Sora', ui-sans-serif, sans-serif; }
+.font-mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+
+/* preloader — quiet fade, no bounce */
+#preloader{
+  position:fixed; inset:0; z-index:100; background:var(--bg);
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .5s ease, visibility .5s ease;
+}
+#preloader.hide{ opacity:0; visibility:hidden; }
+.preload-dot{
+  width:6px; height:6px; border-radius:9999px; background:var(--ink-dim);
+}
+.preload-dot.active{ background:var(--gold); }
+
+/* top scroll-progress rule — the one signature motif */
+#progress-bar{
+  position:fixed; top:0; left:0; height:2px; width:0%; z-index:60;
+  background:var(--gold);
+  transition:width .08s linear;
+}
+
+.card{
+  background:var(--surface); border:1px solid var(--border);
+  transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.card:hover{
+  border-color:#3a3d47; transform:translateY(-3px);
+  box-shadow:0 12px 30px -12px rgba(0,0,0,.45);
+}
+
+.btn-primary{ transition:transform .25s ease, background-color .25s ease; }
+.btn-primary:hover{ transform:translateY(-1px); }
+
+.btn-outline{ transition:border-color .25s ease, color .25s ease; }
+
+/* photo placeholder — calm, no scan animation */
+.photo-slot{
+  position:relative; border-radius:1rem;
+  border:1px solid var(--border);
+  background:linear-gradient(160deg, #15161B 0%, #101114 100%);
+}
+.photo-slot::before{
+  content:"";
+  position:absolute; inset:0; border-radius:1rem;
+  background-image: linear-gradient(to right, #ffffff08 1px, transparent 1px),
+                     linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
+  background-size:28px 28px;
+}
+
+a.tag-dot{ width:6px; height:6px; border-radius:9999px; }
+
+::selection{ background:var(--indigo); color:#0B0C10; }
+input:focus, textarea:focus{ outline:none; }
+
+@media (prefers-reduced-motion: reduce){
+  [data-aos]{ animation:none !important; transition:none !important; }
+}
