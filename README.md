@@ -5,7 +5,7 @@
 ### Final-Year B.E. CSE Student · Full-Stack / Frontend Developer · AI-Integrated Apps
 
 [![Email](https://img.shields.io/badge/Email-ak.abhijithk%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:ak.abhijithk@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/abhijithk)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijithkak/)
 [![GitHub](https://img.shields.io/badge/GitHub-abhijithk--ak-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/abhijithk-ak)
 
 </div>
