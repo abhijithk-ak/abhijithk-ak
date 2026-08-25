@@ -79,4 +79,4 @@ I'm a final-year Computer Science Engineering student who builds full-stack web 
 ### 📫 Let's Connect
 
 [![Email](https://img.shields.io/badge/Email-ak.abhijithk%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:ak.abhijithk@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/abhijithk)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijithkak/)
