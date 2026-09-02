@@ -3,26 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abhijith K. — Frontend & AI Full-Stack Developer</title>
-<meta name="description" content="Portfolio of Abhijith K — junior frontend & AI full-stack developer, 2026 graduate." />
+<title>Abhijith K. — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Abhijith K — full-stack developer building AI-integrated web apps and ESP32 companion robots. 2026 graduate." />
 
 <!-- Fonts: Sora (display) + Inter (body) + IBM Plex Mono (labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Tailwind (CDN, utility classes only) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS for restrained scroll reveals -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
+<!-- ================= GRAIN OVERLAY ================= -->
+<div class="grain" aria-hidden="true"></div>
+
 <!-- ================= PRELOADER ================= -->
 <div id="preloader">
-  <div class="flex items-center gap-2">
+  <div class="preload-dots">
     <span class="preload-dot active"></span>
     <span class="preload-dot"></span>
     <span class="preload-dot"></span>
@@ -33,254 +31,286 @@
 <div id="progress-bar"></div>
 
 <!-- ================= NAVBAR ================= -->
-<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-6 md:px-10 flex justify-between items-center py-5">
-    <a href="#home" class="font-display font-semibold text-lg tracking-tight text-[var(--ink)]">
-      Abhijith<span class="text-[var(--gold)]">.</span>K
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand font-display">
+      Abhijith<span class="dot">.</span>K
     </a>
 
-    <div class="hidden md:flex items-center gap-9 font-mono text-xs tracking-wide text-[var(--ink-dim)]">
-      <a href="#home" class="hover:text-[var(--ink)] transition-colors">Home</a>
-      <a href="#about" class="hover:text-[var(--ink)] transition-colors">About</a>
-      <a href="#projects" class="hover:text-[var(--ink)] transition-colors">Projects</a>
-      <a href="#contact" class="hover:text-[var(--ink)] transition-colors">Contact</a>
+    <div class="nav-links font-mono">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
 
-    <div class="hidden md:block">
-      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener"
-         class="btn-outline px-5 py-2 rounded-full border border-[var(--border)] text-[var(--ink)] font-mono text-xs hover:border-[var(--ink-dim)] transition-colors">
+    <div class="nav-cta">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="btn-outline font-mono">
         GitHub ↗
       </a>
     </div>
 
-    <button id="menu-btn" class="md:hidden text-[var(--ink)] p-2">
-      <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+    <button id="menu-btn" aria-label="Toggle menu">
+      <svg id="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--bg)]/98 border-b border-[var(--border)]">
-    <div class="flex flex-col px-6 py-4 gap-4 font-mono text-sm text-[var(--ink-dim)]">
-      <a href="#home" class="border-b border-[var(--border)] pb-3">Home</a>
-      <a href="#about" class="border-b border-[var(--border)] pb-3">About</a>
-      <a href="#projects" class="border-b border-[var(--border)] pb-3">Projects</a>
-      <a href="#contact" class="pb-1">Contact</a>
-    </div>
+  <div id="mobile-menu" class="font-mono">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="relative w-full min-h-screen flex items-center pt-32 pb-20 px-6 md:px-10">
-  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+<section id="home" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <svg class="hero-trace" viewBox="0 0 600 240" aria-hidden="true">
+      <path class="trace-path" d="M -20 60 L 120 60 L 160 100 L 320 100 L 360 60 L 480 60 L 480 180 L 620 180" />
+      <path class="trace-path trace-path--delay" d="M -20 190 L 90 190 L 130 150 L 260 150 L 300 190 L 620 190" />
+      <circle class="trace-node" cx="160" cy="100" r="4" />
+      <circle class="trace-node trace-node--d1" cx="360" cy="60" r="4" />
+      <circle class="trace-node trace-node--d2" cx="130" cy="150" r="4" />
+    </svg>
+  </div>
 
-    <!-- Text -->
-    <div>
-      <div data-aos="fade-up" class="inline-flex items-center gap-2 font-mono text-xs tracking-wide text-[var(--gold)] border border-[var(--gold)]/25 rounded-full px-4 py-1.5 mb-8 bg-[var(--gold-soft)]">
-        Class of 2026 · Graduate
+  <div class="hero-inner">
+    <div class="hero-text" data-reveal>
+      <div class="badge font-mono" data-reveal data-delay="0">
+        Graduated 2026 · Open to full-time roles
       </div>
 
-      <h1 data-aos="fade-up" data-aos-delay="80" class="font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.12] tracking-tight mb-6">
-        Frontend developer,<br/>
-        growing into <span class="text-[var(--indigo)]">AI full-stack</span>.
+      <h1 class="hero-title font-display" data-reveal data-delay="80">
+        Full-stack developer,<br/>
+        building <span class="grad-text">AI-integrated products</span>.
       </h1>
 
-      <p data-aos="fade-up" data-aos-delay="160" class="text-[var(--ink-dim)] text-base md:text-lg max-w-lg mb-10 leading-relaxed">
-        I'm Abhijith K, a recent graduate working as a junior frontend and
-        AI full-stack developer. I build clean React interfaces and connect
-        them to AI-powered backends — and every so often, to hardware.
+      <p class="hero-sub" data-reveal data-delay="160">
+        I'm Abhijith K, a Computer Science Engineering graduate. I build
+        React and Next.js interfaces, connect them to Node and Flask
+        services, and — every so often — give the same design instincts
+        to an ESP32 robot.
       </p>
 
-      <div data-aos="fade-up" data-aos-delay="240" class="flex flex-wrap items-center gap-4">
-        <a href="#projects" class="btn-primary px-6 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm hover:bg-[#8290ff] transition-colors">
-          View Projects
-        </a>
-        <a href="#contact" class="btn-outline px-6 py-3 rounded-full border border-[var(--border)] text-[var(--ink)] font-semibold text-sm hover:border-[var(--ink-dim)] transition-colors">
-          Get In Touch
-        </a>
+      <div class="hero-cta" data-reveal data-delay="240">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="320" class="flex gap-10 mt-14 font-mono">
+      <div class="hero-stats font-mono" data-reveal data-delay="320">
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">2026</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">Graduate</div>
+          <div class="stat-value">2026</div>
+          <div class="stat-label">Graduate</div>
         </div>
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">React</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">+ AI full-stack</div>
+          <div class="stat-value">Full-Stack</div>
+          <div class="stat-label">+ Embedded</div>
         </div>
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">3+</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">Shipped projects</div>
+          <div class="stat-value">4+</div>
+          <div class="stat-label">Shipped projects</div>
         </div>
       </div>
     </div>
 
-    <!-- Photo -->
-    <div data-aos="fade-up" data-aos-delay="120" class="relative mx-auto w-full max-w-sm">
-      <div class="photo-slot aspect-[4/5] w-full overflow-hidden">
+    <div class="hero-photo" data-reveal data-delay="120">
+      <div class="photo-slot">
         <img
           src="assets/portfolio_picture.jpg"
           alt="Portrait of Abhijith K"
-          class="absolute inset-0 h-full w-full object-cover"
+          onerror="this.parentElement.classList.add('photo-slot--empty'); this.remove();"
         />
       </div>
     </div>
-
   </div>
+
+  <div class="scroll-cue font-mono" aria-hidden="true">Scroll<span></span></div>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+<section id="about" class="section">
+  <div class="section-inner about-grid">
 
-    <!-- quiet fact panel, no terminal gimmick -->
-    <div data-aos="fade-up">
-      <div class="card rounded-2xl p-7">
-        <div class="font-mono text-xs text-[var(--ink-dim)] mb-6">01 — Snapshot</div>
-        <dl class="space-y-5">
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Role</dt>
-            <dd class="text-sm text-[var(--ink)]">Junior Frontend / AI Full-Stack Developer</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Status</dt>
-            <dd class="text-sm text-[var(--ink)]">2026 graduate, open to full-time roles</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Core stack</dt>
-            <dd class="text-sm text-[var(--ink)]">React · TypeScript · Node.js · MongoDB</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Also comfortable in</dt>
-            <dd class="text-sm text-[var(--ink)]">Flask · C++ / ESP32</dd>
-          </div>
-        </dl>
-      </div>
+    <div class="card snapshot-card" data-reveal>
+      <div class="eyebrow font-mono">01 — Snapshot</div>
+      <dl>
+        <div>
+          <dt class="font-mono">Role</dt>
+          <dd>Full-Stack Developer</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Status</dt>
+          <dd>2026 graduate, open to full-time roles</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Core stack</dt>
+          <dd>React · Next.js · Node.js · MongoDB</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Also building in</dt>
+          <dd>Flask · PostgreSQL · C++ / ESP32</dd>
+        </div>
+      </dl>
     </div>
 
-    <!-- copy + skill badges -->
-    <div data-aos="fade-up" data-aos-delay="100">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">About</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-6 leading-tight">
-        Early career, real projects, a frontend-first mindset.
+    <div data-reveal data-delay="100">
+      <div class="eyebrow font-mono accent-gold">About</div>
+      <h2 class="section-title font-display">
+        Real projects, shipped end to end.
       </h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed mb-5 max-w-xl">
-        I'm a junior developer who builds interfaces first and works down the
-        stack from there. My recent work includes an AI-scored mock interview
-        platform, a smart task manager with automatic prioritization, and a
-        companion robot that expresses mood through its own lighting and
-        facial animation.
+      <p class="lede">
+        I build full-stack products from database schema to deployed
+        interface — a task manager that classifies its own tasks, a
+        real-time voice AI coach built on a bring-your-own-key model, and
+        a companion robot whose personality lives in a procedural
+        animation engine I wrote myself.
       </p>
-      <p class="text-[var(--ink-dim)] leading-relaxed mb-10 max-w-xl">
-        Having just graduated, I'm looking for a full-time role where I can
-        keep building polished frontends and grow steadily into AI-driven
-        full-stack work.
+      <p class="lede">
+        Having just graduated, I'm looking for a full-time role where I
+        can keep building interfaces that feel considered, and keep
+        growing into the AI and systems layer underneath them.
       </p>
 
-      <div class="flex flex-wrap gap-2.5">
-        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">React</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">TypeScript</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Tailwind CSS</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Node.js</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Flask</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">MongoDB</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--gold)]/25 font-mono text-xs text-[var(--gold)] bg-[var(--gold-soft)]">C++ / ESP32</span>
+      <div class="tag-row">
+        <span class="tag tag--indigo">React</span>
+        <span class="tag tag--indigo">Next.js</span>
+        <span class="tag tag--indigo">TypeScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Flask</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag tag--gold">C++ / ESP32</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-6xl mx-auto">
-    <div data-aos="fade-up" class="mb-14 max-w-2xl">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">02 — Selected work</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl leading-tight mb-4">Projects worth a closer look</h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed">Pulled straight from my GitHub — an AI interview platform, a smart task manager, and a robot with feelings.</p>
+<section id="projects" class="section">
+  <div class="section-inner">
+    <div class="projects-head" data-reveal>
+      <div class="eyebrow font-mono accent-gold">02 — Selected work</div>
+      <h2 class="section-title font-display">Projects worth a closer look</h2>
+      <p class="lede">Pulled straight from GitHub — a task manager that thinks for itself, a voice AI coach, and a robot with feelings.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-5">
+    <div class="project-grid">
 
       <!-- Project 1 -->
-      <a href="https://github.com/abhijithk-ak/InterviewAce_v1.0" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="80"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--indigo)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">AI Platform</span>
+      <a href="https://github.com/abhijithk-ak/TaskPilot" target="_blank" rel="noopener"
+         class="project-card" data-reveal data-delay="0">
+        <div class="project-media project-media--pattern">
+          <span class="project-media-label font-mono">TaskPilot</span>
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">InterviewAce</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          A research-grade AI mock-interview platform that scores answers
-          across 13+ technical domains with a hybrid NLP + ML pipeline, with
-          an analytics dashboard built for real evaluation.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Node.js</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">TypeScript</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
+        <div class="project-body">
+          <div class="project-kicker">
+            <span class="tag-dot dot-indigo"></span>
+            <span class="font-mono">Full-Stack</span>
+          </div>
+          <h3 class="font-display">TaskPilot</h3>
+          <p>
+            A task manager with a dedicated Flask service for automatic
+            task classification, JWT-secured multi-tenant access, and an
+            adaptive four-column dashboard that syncs without a reload.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Next.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Flask</span>
+            <span class="chip">MongoDB</span>
+          </div>
+          <span class="project-link font-mono">View on GitHub <span class="arrow">→</span></span>
         </div>
-        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
       </a>
 
       <!-- Project 2 -->
-      <a href="https://github.com/abhijithk-ak/TaskPilot" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="160"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--indigo)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">Web App</span>
+      <a href="https://github.com/abhijithk-ak/SpeakForge" target="_blank" rel="noopener"
+         class="project-card" data-reveal data-delay="80">
+        <div class="project-media project-media--pattern">
+          <span class="project-media-label font-mono">SpeakForge</span>
+          <span class="status-pill font-mono">In progress</span>
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">TaskPilot</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          An AI-assisted task manager that automatically prioritizes what
-          matters, pairs a Flask service with a full-stack React app, and
-          keeps navigation fast and unobtrusive.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Flask</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Express</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
+        <div class="project-body">
+          <div class="project-kicker">
+            <span class="tag-dot dot-indigo"></span>
+            <span class="font-mono">AI Product</span>
+          </div>
+          <h3 class="font-display">SpeakForge</h3>
+          <p>
+            A real-time voice AI coach for mock interviews and speech
+            practice, running on a bring-your-own-key model with
+            AES-256-GCM encrypted credentials — zero hosting cost.
+          </p>
+          <div class="chip-row">
+            <span class="chip">React</span>
+            <span class="chip">Express</span>
+            <span class="chip">PostgreSQL</span>
+          </div>
+          <span class="project-link font-mono">View on GitHub <span class="arrow">→</span></span>
         </div>
-        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
       </a>
 
       <!-- Project 3 -->
-      <a href="https://github.com/abhijithk-ak/ZEN_BOT" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="240"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--gold)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">Robotics</span>
+      <a href="https://github.com/abhijithk-ak/EVA" target="_blank" rel="noopener"
+         class="project-card" data-reveal data-delay="160">
+        <div class="project-media">
+          <img src="https://raw.githubusercontent.com/abhijithk-ak/EVA/main/images/sample_emotion1.jpeg" alt="EVA robot animated eye expression" loading="lazy" />
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--gold)] transition-colors">ZEN_BOT</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          An ESP32-based companion robot with its own emotion engine —
-          animated eyes, facial expressions, and mood lighting, driven by a
-          custom mode and state manager written in C++.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">C++</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">ESP32</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Robotics</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Embedded</span>
+        <div class="project-body">
+          <div class="project-kicker">
+            <span class="tag-dot dot-gold"></span>
+            <span class="font-mono">Embedded</span>
+          </div>
+          <h3 class="font-display">EVA</h3>
+          <p>
+            An ESP32 companion robot with a procedural animation engine,
+            distance-based spatial awareness, capacitive touch, and a
+            companion Android app to interface with its behavior engine.
+          </p>
+          <div class="chip-row">
+            <span class="chip">C++</span>
+            <span class="chip">Arduino</span>
+            <span class="chip">ESP32</span>
+          </div>
+          <span class="project-link font-mono gold">View on GitHub <span class="arrow">→</span></span>
         </div>
-        <span class="font-mono text-xs text-[var(--gold)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="https://peak-form-gym-website.vercel.app" target="_blank" rel="noopener"
+         class="project-card" data-reveal data-delay="240">
+        <div class="project-media project-media--pattern">
+          <span class="project-media-label font-mono">PeakForm</span>
+          <span class="status-pill font-mono">Live demo</span>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker">
+            <span class="tag-dot dot-indigo"></span>
+            <span class="font-mono">Frontend</span>
+          </div>
+          <h3 class="font-display">PeakForm</h3>
+          <p>
+            A production-style gym website with a content-driven
+            architecture — swap one data file and it reskins for a new
+            client — plus animated transitions and a filterable class grid.
+          </p>
+          <div class="chip-row">
+            <span class="chip">React</span>
+            <span class="chip">Vite</span>
+            <span class="chip">Framer Motion</span>
+          </div>
+          <span class="project-link font-mono">View live demo <span class="arrow">→</span></span>
+        </div>
       </a>
 
     </div>
 
-    <div data-aos="fade-up" class="mt-12 text-center">
-      <a href="https://github.com/abhijithk-ak?tab=repositories" target="_blank" rel="noopener"
-         class="font-mono text-xs text-[var(--ink-dim)] hover:text-[var(--ink)] transition-colors">
+    <div class="projects-more" data-reveal>
+      <a href="https://github.com/abhijithk-ak?tab=repositories" target="_blank" rel="noopener" class="font-mono">
         See all repositories on GitHub →
       </a>
     </div>
@@ -288,66 +318,55 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-3xl mx-auto">
-    <div data-aos="fade-up" class="mb-12">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">03 — Get in touch</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4">Let's build something together.</h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed max-w-xl">
-        Have a role, a project, or just want to talk frontend and AI? Send a
-        message and I'll get back to you.
-      </p>
+<section id="contact" class="section">
+  <div class="section-inner contact-inner">
+    <div class="contact-head" data-reveal>
+      <div class="eyebrow font-mono accent-gold">03 — Get in touch</div>
+      <h2 class="section-title font-display">Let's build something together.</h2>
+      <p class="lede">Have a role, a project, or just want to talk full-stack and AI? Send a message and I'll get back to you.</p>
     </div>
 
-    <form id="contact-form" data-aos="fade-up" data-aos-delay="80" class="grid md:grid-cols-2 gap-x-8 gap-y-7">
-      <div>
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Name</label>
-        <input id="cf-name" required type="text" placeholder="Your name"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+    <form id="contact-form" class="contact-form" data-reveal data-delay="80">
+      <div class="field">
+        <label class="font-mono" for="cf-name">Name</label>
+        <input id="cf-name" required type="text" placeholder="Your name" />
       </div>
-      <div>
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Email</label>
-        <input id="cf-email" required type="email" placeholder="you@example.com"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+      <div class="field">
+        <label class="font-mono" for="cf-email">Email</label>
+        <input id="cf-email" required type="email" placeholder="you@example.com" />
       </div>
-      <div class="md:col-span-2">
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Message</label>
-        <textarea id="cf-message" required rows="3" placeholder="What are you building?"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50 resize-none"></textarea>
+      <div class="field field--full">
+        <label class="font-mono" for="cf-message">Message</label>
+        <textarea id="cf-message" required rows="3" placeholder="What are you building?"></textarea>
       </div>
-      <div class="md:col-span-2 flex items-center justify-between flex-wrap gap-6 mt-2">
-        <div class="flex gap-5 font-mono text-xs text-[var(--ink-dim)]">
-          <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
-          <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
-          <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">Email</a>
+      <div class="field--full contact-actions">
+        <div class="contact-links font-mono">
+          <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:ak.abhijithk@gmail.com">Email</a>
         </div>
-        <button type="submit"
-          class="btn-primary px-7 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm inline-flex items-center gap-2 hover:bg-[#8290ff] transition-colors">
-          Send Message
-          <span>→</span>
+        <button type="submit" class="btn-primary">
+          Send Message <span>→</span>
         </button>
       </div>
-      <p id="cf-status" class="md:col-span-2 font-mono text-xs text-[var(--ink-dim)] hidden"></p>
+      <p id="cf-status" class="font-mono hidden"></p>
     </form>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="w-full border-t border-[var(--border)] py-8 px-6 md:px-10">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-xs text-[var(--ink-dim)]">
+<footer>
+  <div class="section-inner footer-inner font-mono">
     <span>© 2026 Abhijith K.</span>
-    <div class="flex gap-6">
-      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
-      <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">ak.abhijithk@gmail.com</a>
+    <div class="footer-links">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ak.abhijithk@gmail.com">ak.abhijithk@gmail.com</a>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 700, once: true, easing: 'ease-out' });
-
   // preloader
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('preloader').classList.add('hide'), 300);
@@ -356,11 +375,7 @@
   // navbar background on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
-    } else {
-      navbar.classList.remove('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
 
   // mobile menu
@@ -371,13 +386,13 @@
   let menuOpen = false;
   menuBtn.addEventListener('click', () => {
     menuOpen = !menuOpen;
-    mobileMenu.style.maxHeight = menuOpen ? mobileMenu.scrollHeight + 'px' : '0px';
+    mobileMenu.classList.toggle('open', menuOpen);
     iconOpen.classList.toggle('hidden', menuOpen);
     iconClose.classList.toggle('hidden', !menuOpen);
   });
   document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => {
     menuOpen = false;
-    mobileMenu.style.maxHeight = '0px';
+    mobileMenu.classList.remove('open');
     iconOpen.classList.remove('hidden');
     iconClose.classList.add('hidden');
   }));
@@ -393,8 +408,21 @@
   window.addEventListener('scroll', updateProgress);
   updateProgress();
 
+  // scroll reveal — replaces the AOS dependency with a small IntersectionObserver
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.getAttribute('data-delay') || 0;
+        setTimeout(() => el.classList.add('is-visible'), Number(delay));
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => io.observe(el));
+
   // contact form: opens the visitor's email client with a pre-filled message
-  // addressed to ak.abhijithk@gmail.com — no backend/server required.
   const YOUR_EMAIL = 'ak.abhijithk@gmail.com';
   const cfForm = document.getElementById('contact-form');
   const cfStatus = document.getElementById('cf-status');
