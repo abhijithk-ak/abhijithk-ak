@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7F5AF0,100:2CB67D&height=220&section=header&text=Abhijith%20K&fontSize=65&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20Developer%20%7C%20AI-Integrated%20Apps%20%7C%20Embedded%20Systems&descAlignY=58&descSize=18" width="100%" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=7F5AF0&center=true&vCenter=true&multiline=false&width=700&lines=Computer+Science+Engineering+Graduate+%F0%9F%8E%93;Full-Stack+%2F+Frontend+Developer+%F0%9F%9A%80;Building+AI-Powered+Products+%F0%9F%A4%96;React+%C2%B7+Node.js+%C2%B7+Next.js+%C2%B7+MongoDB;Shipping+real+things%2C+not+tutorial+clones+%E2%9C%85;Also+tinkers+with+ESP32+Robots+%F0%9F%A4%96" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=7F5AF0&center=true&vCenter=true&width=700&lines=Computer+Science+Engineering+Graduate+%F0%9F%8E%93;Full-Stack+%2F+Frontend+Developer+%F0%9F%9A%80;Building+AI-Powered+Products+%F0%9F%A4%96;React+%C2%B7+Node.js+%C2%B7+Next.js+%C2%B7+MongoDB;Shipping+real+things%2C+not+tutorial+clones+%E2%9C%85;Also+tinkers+with+ESP32+Robots+%F0%9F%A4%96" alt="Typing SVG" />
 
 <br/>
 
@@ -60,6 +60,7 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <p>
   <img src="https://skillicons.dev/icons?i=arduino&theme=dark" />
+  &nbsp;
   <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" />
 </p>
 
@@ -69,15 +70,9 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
   <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,vercel&theme=dark&perline=5" />
 </p>
 
-</div>
+**🚀 Always building with**
 
----
-
-### 🚀 Animated Stack Highlight
-
-<div align="center">
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=1800&pause=600&color=2CB67D&center=true&vCenter=true&width=500&lines=React+18+%7C+Next.js+14+%7C+Vite;Node.js+%7C+Express+%7C+Flask;MongoDB+%7C+PostgreSQL+%7C+MySQL;Groq+%7C+Gemini+%7C+OpenAI+APIs;ESP32+%7C+Arduino+%7C+C%2B%2B+Firmware;JWT+Auth+%7C+AES-256-GCM+%7C+REST+APIs" alt="Stack Ticker" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=15&duration=1800&pause=600&color=2CB67D&center=true&vCenter=true&width=500&lines=React+18+%7C+Next.js+%7C+Vite;Node.js+%7C+Express+%7C+Flask;MongoDB+%7C+PostgreSQL+%7C+MySQL;Groq+%7C+Gemini+%7C+OpenAI+APIs;ESP32+%7C+Arduino+%7C+C%2B%2B+Firmware;JWT+Auth+%7C+AES-256-GCM+%7C+REST+APIs" alt="Stack Ticker" />
 
 </div>
 
@@ -108,28 +103,15 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <div align="center">
 
-<!-- Stats card — using a pinned vercel deploy that bypasses rate limits -->
-<a href="https://github.com/abhijithk-ak">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true&cache_seconds=1800" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8&cache_seconds=1800" />
-</a>
+<img src="https://streak-stats.demolab.com/?user=abhijithk-ak&theme=radical&hide_border=true" alt="GitHub Streak" width="60%" />
 
 <br/><br/>
 
-<img src="https://streak-stats.demolab.com/?user=abhijithk-ak&theme=radical&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" width="60%" />
-
-<br/><br/>
-
-<!-- Contribution snake animation — generated via GitHub Actions -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake.svg" />
-  <img alt="GitHub contribution snake" src="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake-dark.svg" width="95%" />
-</picture>
+<img src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="Abhijith's GitHub stats" width="48%" />
+&nbsp;
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8" alt="Top languages" width="38%" />
 
 </div>
-
-> 💡 **Note:** If the stats cards appear broken, GitHub's image proxy sometimes rate-limits external widgets. Try opening the profile in a private/incognito window or on mobile — they usually load fine there. You can also [self-deploy the stats API](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance) for 100% uptime.
 
 ---
 
@@ -139,10 +121,6 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 [![Email](https://img.shields.io/badge/Email-ak.abhijithk%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ak.abhijithk@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijithkak/)
-
-<br/>
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" width="60%" />
 
 <br/>
 
