@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7F5AF0,100:2CB67D&height=200&section=header&text=Abhijith%20K&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20Developer%20%7C%20AI-Integrated%20Apps%20%7C%20Embedded%20Systems&descAlignY=58&descSize=18" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7F5AF0,100:2CB67D&height=220&section=header&text=Abhijith%20K&fontSize=65&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20Developer%20%7C%20AI-Integrated%20Apps%20%7C%20Embedded%20Systems&descAlignY=58&descSize=18" width="100%" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=7F5AF0&center=true&vCenter=true&width=650&lines=Computer+Science+Engineering+Graduate;Full-Stack+%2F+Frontend+Developer;Building+AI-Powered+Products;React+%C2%B7+Node.js+%C2%B7+Next.js+%C2%B7+MongoDB;Also+tinkers+with+ESP32+Robots+%F0%9F%A4%96" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=900&color=7F5AF0&center=true&vCenter=true&multiline=false&width=700&lines=Computer+Science+Engineering+Graduate+%F0%9F%8E%93;Full-Stack+%2F+Frontend+Developer+%F0%9F%9A%80;Building+AI-Powered+Products+%F0%9F%A4%96;React+%C2%B7+Node.js+%C2%B7+Next.js+%C2%B7+MongoDB;Shipping+real+things%2C+not+tutorial+clones+%E2%9C%85;Also+tinkers+with+ESP32+Robots+%F0%9F%A4%96" alt="Typing SVG" />
 
 <br/>
 
@@ -10,6 +10,8 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijithkak/)
 [![GitHub](https://img.shields.io/badge/GitHub-abhijithk--ak-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/abhijithk-ak)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-2CB67D?style=for-the-badge&logo=vercel&logoColor=white)](#)
+
+<img src="https://komarev.com/ghpvc/?username=abhijithk-ak&label=Profile%20Views&color=7F5AF0&style=flat-square" alt="profile views" />
 
 </div>
 
@@ -32,47 +34,50 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <div align="center">
 
-**Languages**
-<br/>
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+**⚡ Languages**
 
-**Frontend**
-<br/>
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+<p>
+  <img src="https://skillicons.dev/icons?i=java,js,ts,python,cpp,c&theme=dark&perline=6" />
+</p>
 
-**Backend & Data**
-<br/>
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+**🎨 Frontend**
 
-**Embedded & Hardware**
-<br/>
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white)
-![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white)
+<p>
+  <img src="https://skillicons.dev/icons?i=react,nextjs,vite,tailwind,html,css&theme=dark&perline=6" />
+</p>
 
-**Tools & Platforms**
-<br/>
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+</p>
+
+**🔧 Backend & Data**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express,flask,mongodb,postgresql,mysql&theme=dark&perline=6" />
+</p>
+
+**🤖 Embedded & Hardware**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=arduino&theme=dark" />
+  <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white" />
+</p>
+
+**🧰 Tools & Platforms**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,postman,vercel&theme=dark&perline=5" />
+</p>
+
+</div>
+
+---
+
+### 🚀 Animated Stack Highlight
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=1800&pause=600&color=2CB67D&center=true&vCenter=true&width=500&lines=React+18+%7C+Next.js+14+%7C+Vite;Node.js+%7C+Express+%7C+Flask;MongoDB+%7C+PostgreSQL+%7C+MySQL;Groq+%7C+Gemini+%7C+OpenAI+APIs;ESP32+%7C+Arduino+%7C+C%2B%2B+Firmware;JWT+Auth+%7C+AES-256-GCM+%7C+REST+APIs" alt="Stack Ticker" />
 
 </div>
 
@@ -88,7 +93,7 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 | 🏋️ **[PeakForm Gym Website](https://github.com/abhijithk-ak/PeakForm-Gym-Website)** | Production-quality, fully frontend client-style gym website — content-driven architecture reskinnable in minutes. | React · Vite · Framer Motion |
 
 <details>
-<summary>Other projects</summary>
+<summary>▶ Other projects</summary>
 <br/>
 
 - 🧪 **[Indian Rainfall Prediction](https://github.com/abhijithk-ak/Indian-Rainfall-Prediction)** — Comparative ML study (Naive Bayes, Random Forest, SVM, KNN, Decision Tree) on historical rainfall data.
@@ -103,12 +108,27 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true" alt="Abhijith's GitHub stats" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true" alt="Top languages" width="38%" />
+<img src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="Abhijith's GitHub stats" width="48%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8" alt="Top languages" width="38%" />
 
-<br/>
+<br/><br/>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=abhijithk-ak&theme=radical&hide_border=true" alt="GitHub streak" width="60%" />
+<!-- Using git-streak-stats (more reliable alternative) -->
+<img src="https://streak-stats.demolab.com/?user=abhijithk-ak&theme=radical&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" width="60%" />
+
+<br/><br/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=abhijithk-ak&theme=radical&no-frame=true&no-bg=true&row=1&column=6" alt="GitHub Trophies" width="90%" />
+
+</div>
+
+---
+
+### 📈 Contribution Graph
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=abhijithk-ak&theme=tokyo-night&hide_border=true&area=true&color=7F5AF0&line=2CB67D&point=ffffff" width="95%" alt="Contribution Graph" />
 
 </div>
 
@@ -121,6 +141,12 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 [![Email](https://img.shields.io/badge/Email-ak.abhijithk%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ak.abhijithk@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijithkak/)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2CB67D,100:7F5AF0&height=100&section=footer" width="100%" />
+<br/>
+
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" width="60%" />
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2CB67D,100:7F5AF0&height=120&section=footer" width="100%" />
 
 </div>
