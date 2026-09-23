@@ -108,29 +108,28 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="Abhijith's GitHub stats" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8" alt="Top languages" width="38%" />
+<!-- Stats card — using a pinned vercel deploy that bypasses rate limits -->
+<a href="https://github.com/abhijithk-ak">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true&cache_seconds=1800" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8&cache_seconds=1800" />
+</a>
 
 <br/><br/>
 
-<!-- Using git-streak-stats (more reliable alternative) -->
 <img src="https://streak-stats.demolab.com/?user=abhijithk-ak&theme=radical&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" width="60%" />
 
 <br/><br/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=abhijithk-ak&theme=radical&no-frame=true&no-bg=true&row=1&column=6" alt="GitHub Trophies" width="90%" />
+<!-- Contribution snake animation — generated via GitHub Actions -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake.svg" />
+  <img alt="GitHub contribution snake" src="https://raw.githubusercontent.com/abhijithk-ak/abhijithk-ak/output/github-snake-dark.svg" width="95%" />
+</picture>
 
 </div>
 
----
-
-### 📈 Contribution Graph
-
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=abhijithk-ak&theme=tokyo-night&hide_border=true&area=true&color=7F5AF0&line=2CB67D&point=ffffff" width="95%" alt="Contribution Graph" />
-
-</div>
+> 💡 **Note:** If the stats cards appear broken, GitHub's image proxy sometimes rate-limits external widgets. Try opening the profile in a private/incognito window or on mobile — they usually load fine there. You can also [self-deploy the stats API](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own-vercel-instance) for 100% uptime.
 
 ---
 
