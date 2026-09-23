@@ -107,9 +107,13 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 
 <br/><br/>
 
-<img src="https://github-readme-stats.vercel.app/api?username=abhijithk-ak&show_icons=true&theme=radical&hide_border=true&count_private=true&include_all_commits=true" alt="Abhijith's GitHub stats" width="48%" />
-&nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhijithk-ak&layout=compact&theme=radical&hide_border=true&langs_count=8" alt="Top languages" width="38%" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=abhijithk-ak&theme=radical" width="90%" alt="Profile Summary" />
+
+<br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=abhijithk-ak&theme=radical" width="32%" alt="Repos per language" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=abhijithk-ak&theme=radical" width="32%" alt="Most commit language" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=abhijithk-ak&theme=radical" width="32%" alt="Stats" />
 
 </div>
 
