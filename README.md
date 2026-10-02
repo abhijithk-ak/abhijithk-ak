@@ -85,6 +85,7 @@ I'm a Computer Science Engineering graduate (2026) who builds full-stack product
 | 🎙️ **[SpeakForge](https://github.com/abhijithk-ak/SpeakForge)** | Real-time voice AI coach for mock interviews, speeches, and client roleplay — BYOK architecture with AES-256-GCM encrypted keys, zero hosting cost. | React 18 · Node/Express · PostgreSQL · Groq/Gemini |
 | ✅ **[TaskPilot](https://github.com/abhijithk-ak/TaskPilot)** | AI-powered task manager with automatic priority/status classification via a Flask microservice, a four-column adaptive dashboard, and JWT auth. | Next.js · Node · Flask · MongoDB |
 | 🤖 **[EVA](https://github.com/abhijithk-ak/EVA)** | Emotionally-expressive ESP32 companion robot — procedural eye/body animation engine, ToF spatial awareness, capacitive touch, Android companion app. | C++ · Arduino · ESP32 |
+| 🎚️ **[ESP32-C3 I2S Audio Spectrum Visualizer](https://github.com/abhijithk-ak/ESP32-C3-I2S-Audio-Spectrum-Visualizer)** | Mono audio visualization with a 32-band FFT, INMP441 microphone, startup noise calibration, and four OLED modes. Tested with SSD1306 and SH1106 displays. | C++ · Arduino · ESP32-C3 · I2S · FFT · U8g2 |
 | 🏋️ **[PeakForm Gym Website](https://github.com/abhijithk-ak/PeakForm-Gym-Website)** | Production-quality, fully frontend client-style gym website — content-driven architecture reskinnable in minutes. | React · Vite · Framer Motion |
 
 <details>
