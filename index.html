@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abhijith K. — Frontend & AI Full-Stack Developer</title>
-<meta name="description" content="Portfolio of Abhijith K — junior frontend & AI full-stack developer, 2026 graduate." />
+<title>Abhijith K. — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Abhijith K — full-stack developer building AI-integrated web apps and ESP32 companion robots. 2026 graduate." />
 
 <!-- Fonts: Sora (display) + Inter (body) + IBM Plex Mono (labels) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Tailwind (CDN, utility classes only) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS for restrained scroll reveals -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
+<!-- ================= GRAIN OVERLAY ================= -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
 <!-- ================= PRELOADER ================= -->
 <div id="preloader">
-  <div class="flex items-center gap-2">
+  <div class="preload-dots">
     <span class="preload-dot active"></span>
     <span class="preload-dot"></span>
     <span class="preload-dot"></span>
@@ -33,321 +32,362 @@
 <div id="progress-bar"></div>
 
 <!-- ================= NAVBAR ================= -->
-<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-6 md:px-10 flex justify-between items-center py-5">
-    <a href="#home" class="font-display font-semibold text-lg tracking-tight text-[var(--ink)]">
-      Abhijith<span class="text-[var(--gold)]">.</span>K
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand font-display">
+      Abhijith<span class="dot">.</span>K
     </a>
 
-    <div class="hidden md:flex items-center gap-9 font-mono text-xs tracking-wide text-[var(--ink-dim)]">
-      <a href="#home" class="hover:text-[var(--ink)] transition-colors">Home</a>
-      <a href="#about" class="hover:text-[var(--ink)] transition-colors">About</a>
-      <a href="#projects" class="hover:text-[var(--ink)] transition-colors">Projects</a>
-      <a href="#contact" class="hover:text-[var(--ink)] transition-colors">Contact</a>
+    <div class="nav-links font-mono">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
 
-    <div class="hidden md:block">
-      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener"
-         class="btn-outline px-5 py-2 rounded-full border border-[var(--border)] text-[var(--ink)] font-mono text-xs hover:border-[var(--ink-dim)] transition-colors">
+    <div class="nav-cta">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="btn-outline font-mono">
         GitHub ↗
       </a>
     </div>
 
-    <button id="menu-btn" class="md:hidden text-[var(--ink)] p-2">
-      <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+    <button id="menu-btn" aria-label="Toggle menu">
+      <svg id="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-[var(--bg)]/98 border-b border-[var(--border)]">
-    <div class="flex flex-col px-6 py-4 gap-4 font-mono text-sm text-[var(--ink-dim)]">
-      <a href="#home" class="border-b border-[var(--border)] pb-3">Home</a>
-      <a href="#about" class="border-b border-[var(--border)] pb-3">About</a>
-      <a href="#projects" class="border-b border-[var(--border)] pb-3">Projects</a>
-      <a href="#contact" class="pb-1">Contact</a>
-    </div>
+  <div id="mobile-menu" class="font-mono">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="relative w-full min-h-screen flex items-center pt-32 pb-20 px-6 md:px-10">
-  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+<section id="home" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <svg class="hero-trace" viewBox="0 0 600 240" aria-hidden="true">
+      <path class="trace-path" d="M -20 60 L 120 60 L 160 100 L 320 100 L 360 60 L 480 60 L 480 180 L 620 180" />
+      <path class="trace-path trace-path--delay" d="M -20 190 L 90 190 L 130 150 L 260 150 L 300 190 L 620 190" />
+      <circle class="trace-node" cx="160" cy="100" r="4" />
+      <circle class="trace-node trace-node--d1" cx="360" cy="60" r="4" />
+      <circle class="trace-node trace-node--d2" cx="130" cy="150" r="4" />
+    </svg>
+  </div>
 
-    <!-- Text -->
-    <div>
-      <div data-aos="fade-up" class="inline-flex items-center gap-2 font-mono text-xs tracking-wide text-[var(--gold)] border border-[var(--gold)]/25 rounded-full px-4 py-1.5 mb-8 bg-[var(--gold-soft)]">
-        Class of 2026 · Graduate
+  <div class="hero-inner">
+    <div class="hero-text" data-reveal>
+      <div class="badge font-mono" data-reveal data-delay="0">
+        Graduated 2026 · Open to full-time roles
       </div>
 
-      <h1 data-aos="fade-up" data-aos-delay="80" class="font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.12] tracking-tight mb-6">
-        Frontend developer,<br/>
-        growing into <span class="text-[var(--indigo)]">AI full-stack</span>.
+      <h1 class="hero-title font-display" data-reveal data-delay="80">
+        Full-stack developer who builds <span class="grad-text">complete products</span>, end to end.
       </h1>
 
-      <p data-aos="fade-up" data-aos-delay="160" class="text-[var(--ink-dim)] text-base md:text-lg max-w-lg mb-10 leading-relaxed">
-        I'm Abhijith K, a recent graduate working as a junior frontend and
-        AI full-stack developer. I build clean React interfaces and connect
-        them to AI-powered backends — and every so often, to hardware.
+      <p class="hero-sub" data-reveal data-delay="160">
+        Hi, I'm Abhijith — a Computer Science graduate who builds web apps
+        from the database to the screen, with AI built in. I also build
+        ESP32 based robots and gadgets, so I'm open to embedded and robotics
+        internships too.
       </p>
 
-      <div data-aos="fade-up" data-aos-delay="240" class="flex flex-wrap items-center gap-4">
-        <a href="#projects" class="btn-primary px-6 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm hover:bg-[#8290ff] transition-colors">
-          View Projects
-        </a>
-        <a href="#contact" class="btn-outline px-6 py-3 rounded-full border border-[var(--border)] text-[var(--ink)] font-semibold text-sm hover:border-[var(--ink-dim)] transition-colors">
-          Get In Touch
-        </a>
+      <div class="hero-cta" data-reveal data-delay="240">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Let's Talk</a>
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="320" class="flex gap-10 mt-14 font-mono">
+      <div class="hero-stats font-mono" data-reveal data-delay="320">
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">2026</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">Graduate</div>
+          <div class="stat-value">2026</div>
+          <div class="stat-label">Graduate</div>
         </div>
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">React</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">+ AI full-stack</div>
+          <div class="stat-value">Full-Stack</div>
+          <div class="stat-label">+ Embedded</div>
         </div>
         <div>
-          <div class="text-xl font-medium text-[var(--ink)]">3+</div>
-          <div class="text-xs text-[var(--ink-dim)] mt-1">Shipped projects</div>
+          <div class="stat-value">9</div>
+          <div class="stat-label">Shipped projects</div>
         </div>
       </div>
     </div>
 
-    <!-- Photo -->
-    <div data-aos="fade-up" data-aos-delay="120" class="relative mx-auto w-full max-w-sm">
-      <div class="photo-slot aspect-[4/5] w-full overflow-hidden">
+    <div class="hero-photo" data-reveal data-delay="120">
+      <div class="photo-slot">
         <img
           src="assets/portfolio_picture.jpg"
           alt="Portrait of Abhijith K"
-          class="absolute inset-0 h-full w-full object-cover"
+          onerror="this.parentElement.classList.add('photo-slot--empty'); this.remove();"
         />
       </div>
+      <span class="float-chip font-mono fc1">&lt;/&gt; React</span>
+      <span class="float-chip font-mono fc2">ESP32</span>
+      <span class="float-chip font-mono fc3">AI ✦</span>
     </div>
-
   </div>
+
+  <a href="#about" class="scroll-cue font-mono" aria-label="Scroll down"><em>Scroll</em><b class="mouse"><i></i></b></a>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+<section id="about" class="section">
+  <div class="section-inner about-grid">
 
-    <!-- quiet fact panel, no terminal gimmick -->
-    <div data-aos="fade-up">
-      <div class="card rounded-2xl p-7">
-        <div class="font-mono text-xs text-[var(--ink-dim)] mb-6">01 — Snapshot</div>
-        <dl class="space-y-5">
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Role</dt>
-            <dd class="text-sm text-[var(--ink)]">Junior Frontend / AI Full-Stack Developer</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Status</dt>
-            <dd class="text-sm text-[var(--ink)]">2026 graduate, open to full-time roles</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Core stack</dt>
-            <dd class="text-sm text-[var(--ink)]">React · TypeScript · Node.js · MongoDB</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-[11px] text-[var(--ink-dim)] mb-1">Also comfortable in</dt>
-            <dd class="text-sm text-[var(--ink)]">Flask · C++ / ESP32</dd>
-          </div>
-        </dl>
-      </div>
+    <div class="card snapshot-card" data-reveal>
+      <div class="eyebrow font-mono">01 — Snapshot</div>
+      <dl>
+        <div>
+          <dt class="font-mono">Role</dt>
+          <dd>Full-Stack Developer</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Open to</dt>
+          <dd>Full-time roles · Internships · Web Development · Embedded &amp; Robotics</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Education</dt>
+          <dd>B.E. Computer Science Engineering, 2026</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Web stack</dt>
+          <dd>React · Next.js · TypeScript · Node.js · MongoDB</dd>
+        </div>
+        <div>
+          <dt class="font-mono">Also works with</dt>
+          <dd>Flask · PostgreSQL · Python · C++ / ESP32</dd>
+        </div>
+      </dl>
     </div>
 
-    <!-- copy + skill badges -->
-    <div data-aos="fade-up" data-aos-delay="100">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">About</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-6 leading-tight">
-        Early career, real projects, a frontend-first mindset.
+    <div data-reveal data-delay="100">
+      <div class="eyebrow font-mono accent-gold">About</div>
+      <h2 class="section-title font-display">
+        Real projects, shipped end to end.
       </h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed mb-5 max-w-xl">
-        I'm a junior developer who builds interfaces first and works down the
-        stack from there. My recent work includes an AI-scored mock interview
-        platform, a smart task manager with automatic prioritization, and a
-        companion robot that expresses mood through its own lighting and
-        facial animation.
+      <p class="lede">
+        I enjoy taking an idea all the way through — the database, the
+        server, the screen, and the AI that makes it smart. TaskPilot sorts
+        and prioritises tasks automatically, and SpeakForge is a voice coach
+        that helps people practise interviews, designed so users bring their
+        own API keys and it costs nothing to host.
       </p>
-      <p class="text-[var(--ink-dim)] leading-relaxed mb-10 max-w-xl">
-        Having just graduated, I'm looking for a full-time role where I can
-        keep building polished frontends and grow steadily into AI-driven
-        full-stack work.
+      <p class="lede">
+        Outside web work, I build robots and gadgets with ESP32
+        microcontrollers — including EVA, a companion robot with expressive
+        animated eyes that reacts to touch and distance. It keeps me
+        curious, and it's why I'm also keen on embedded and robotics
+        internships.
       </p>
+      <p class="lede">
+        I've just graduated and I'm looking for a full-time full-stack or
+        software role, or an internship in embedded or robotics, where I can
+        keep building, learn fast and contribute from day one.
 
-      <div class="flex flex-wrap gap-2.5">
-        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">React</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--indigo)]/30 font-mono text-xs text-[var(--indigo)] bg-[var(--indigo-soft)]">TypeScript</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Tailwind CSS</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Node.js</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">Flask</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--border)] font-mono text-xs text-[var(--ink)]">MongoDB</span>
-        <span class="px-4 py-2 rounded-full border border-[var(--gold)]/25 font-mono text-xs text-[var(--gold)] bg-[var(--gold-soft)]">C++ / ESP32</span>
+      <div class="tag-row">
+        <span class="tag tag--indigo">React</span>
+        <span class="tag tag--indigo">Next.js</span>
+        <span class="tag tag--indigo">TypeScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Flask</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Python / ML</span>
+        <span class="tag tag--gold">C++ / ESP32</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-6xl mx-auto">
-    <div data-aos="fade-up" class="mb-14 max-w-2xl">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">02 — Selected work</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl leading-tight mb-4">Projects worth a closer look</h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed">Pulled straight from my GitHub — an AI interview platform, a smart task manager, and a robot with feelings.</p>
+<section id="projects" class="section">
+  <div class="section-inner">
+    <div class="projects-head" data-reveal>
+      <div class="eyebrow font-mono accent-gold">02 — Selected work</div>
+      <h2 class="section-title font-display">Projects worth a closer look</h2>
+      <p class="lede">Pulled straight from GitHub — AI products on the web side, and robots, audio and games on the hardware side.</p>
+      <div class="filters font-mono" role="tablist">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="web">Web &amp; AI</button>
+        <button class="filter" data-filter="embedded">Embedded</button>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-5">
-
-      <!-- Project 1 -->
-      <a href="https://github.com/abhijithk-ak/InterviewAce_v1.0" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="80"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--indigo)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">AI Platform</span>
+    <div class="project-grid" id="project-grid">
+      <a href="https://github.com/abhijithk-ak/SpeakForge" target="_blank" rel="noopener" class="project-card" data-cat="web" data-reveal data-delay="0">
+        <div class="project-media"><div class="bars bars--indigo" data-n="30"></div><span class="status-pill font-mono">In progress</span></div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-indigo"></span><span class="font-mono">AI Product</span></div>
+          <h3 class="font-display">SpeakForge</h3>
+          <p>An open-source voice AI coach for mock interviews, speech practice and client roleplay. Runs on a bring-your-own-key model with AES-256-GCM encrypted credentials — zero hosting cost.</p>
+          <div class="chip-row"><span class="chip">React</span><span class="chip">Express</span><span class="chip">PostgreSQL</span><span class="chip">Groq / Gemini</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#f1e05a"></i>JavaScript</span><span class="project-link">GitHub <span class="arrow">→</span></span></div>
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">InterviewAce</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          A research-grade AI mock-interview platform that scores answers
-          across 13+ technical domains with a hybrid NLP + ML pipeline, with
-          an analytics dashboard built for real evaluation.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Node.js</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">TypeScript</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
-        </div>
-        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
       </a>
-
-      <!-- Project 2 -->
-      <a href="https://github.com/abhijithk-ak/TaskPilot" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="160"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--indigo)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">Web App</span>
+      <a href="https://github.com/abhijithk-ak/TaskPilot" target="_blank" rel="noopener" class="project-card" data-cat="web" data-reveal data-delay="80">
+        <div class="project-media"><svg class="art" viewBox="0 0 300 150"><g class="kb"><rect x="30" y="26" width="60" height="100" rx="6" fill="#1c1d23" stroke="#262830"/><rect x="120" y="26" width="60" height="100" rx="6" fill="#1c1d23" stroke="#262830"/><rect x="210" y="26" width="60" height="100" rx="6" fill="#1c1d23" stroke="#262830"/><rect x="36" y="32" width="30" height="4" rx="2" fill="#6C7BFF"/><rect x="126" y="32" width="30" height="4" rx="2" fill="#C9A227"/><rect x="216" y="32" width="30" height="4" rx="2" fill="#2ecb7a"/><rect class="t1" x="36" y="44" width="48" height="16" rx="3" fill="#262830"/><rect class="t2" x="36" y="66" width="48" height="16" rx="3" fill="#262830"/><rect class="t3" x="126" y="44" width="48" height="16" rx="3" fill="#6C7BFF66"/><rect x="216" y="44" width="48" height="16" rx="3" fill="#262830"/></g></svg></div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-indigo"></span><span class="font-mono">Full-Stack</span></div>
+          <h3 class="font-display">TaskPilot</h3>
+          <p>A task manager with a dedicated Flask service for automatic priority and status classification, JWT-secured access, and an adaptive four-column dashboard that syncs without a reload.</p>
+          <div class="chip-row"><span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">Flask</span><span class="chip">MongoDB</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#3178c6"></i>TypeScript</span><span class="project-link">GitHub <span class="arrow">→</span></span></div>
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--indigo)] transition-colors">TaskPilot</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          An AI-assisted task manager that automatically prioritizes what
-          matters, pairs a Flask service with a full-stack React app, and
-          keeps navigation fast and unobtrusive.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">React</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Flask</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Express</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">MongoDB</span>
-        </div>
-        <span class="font-mono text-xs text-[var(--indigo)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
       </a>
-
-      <!-- Project 3 -->
-      <a href="https://github.com/abhijithk-ak/ZEN_BOT" target="_blank" rel="noopener"
-         data-aos="fade-up" data-aos-delay="240"
-         class="card group relative flex flex-col rounded-2xl p-7">
-        <div class="flex items-center gap-2 mb-5">
-          <span class="tag-dot bg-[var(--gold)]"></span>
-          <span class="font-mono text-xs text-[var(--ink-dim)]">Robotics</span>
+      <a href="https://github.com/abhijithk-ak/EVA" target="_blank" rel="noopener" class="project-card" data-cat="embedded" data-reveal data-delay="160">
+        <div class="project-media"><img src="https://raw.githubusercontent.com/abhijithk-ak/EVA/main/images/sample_emotion1.jpeg" alt="EVA robot eye expression" loading="lazy"/></div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-gold"></span><span class="font-mono">Robotics</span></div>
+          <h3 class="font-display">EVA</h3>
+          <p>An autonomous, emotionally expressive ESP32 desktop companion: animated OLED eyes, a continuous internal drive engine, procedural movement, capacitive touch, ToF spatial awareness and an Android app.</p>
+          <div class="chip-row"><span class="chip">C / C++</span><span class="chip">ESP32</span><span class="chip">NeoPixel</span><span class="chip">ToF</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#8a8a8a"></i>C</span><span class="project-link gold">GitHub <span class="arrow">→</span></span></div>
         </div>
-        <h3 class="font-display font-semibold text-lg mb-3 group-hover:text-[var(--gold)] transition-colors">ZEN_BOT</h3>
-        <p class="text-sm text-[var(--ink-dim)] leading-relaxed mb-6 flex-1">
-          An ESP32-based companion robot with its own emotion engine —
-          animated eyes, facial expressions, and mood lighting, driven by a
-          custom mode and state manager written in C++.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">C++</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">ESP32</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Robotics</span>
-          <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border border-[var(--border)] text-[var(--ink-dim)]">Embedded</span>
-        </div>
-        <span class="font-mono text-xs text-[var(--gold)] inline-flex items-center gap-1">
-          View on GitHub <span class="group-hover:translate-x-1 transition-transform">→</span>
-        </span>
       </a>
-
+      <a href="https://github.com/abhijithk-ak/Hill-Climb-Racing-ESP32-OLED-Edition" target="_blank" rel="noopener" class="project-card" data-cat="embedded" data-reveal data-delay="0">
+        <div class="project-media">
+          <svg class="art" viewBox="0 0 300 150">
+            <path id="hp" d="M0 124 C36 124 52 86 92 86 S146 126 178 120 S244 74 300 84" fill="none" stroke="#C9A227" stroke-width="2.5"/>
+            <path d="M0 124 C36 124 52 86 92 86 S146 126 178 120 S244 74 300 84 V164 H0 Z" fill="#C9A22714"/>
+            <g>
+              <animateMotion dur="8s" repeatCount="indefinite" rotate="auto" path="M0 124 C36 124 52 86 92 86 S146 126 178 120 S244 74 300 84"/>
+              <rect x="-11" y="-13" width="22" height="8" rx="2" fill="#C9A227"/>
+              <rect x="-4" y="-19" width="10" height="7" rx="2" fill="#6C7BFF"/>
+              <circle cx="-7" cy="-4" r="3.6" fill="#ECEDF0"/><circle cx="7" cy="-4" r="3.6" fill="#ECEDF0"/>
+            </g>
+              <circle cx="40" cy="30" r="1" fill="#fff"/>
+              <circle cx="220" cy="22" r="1.2" fill="#fff"/>
+          </svg>
+          <span class="status-pill font-mono">New</span></div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-gold"></span><span class="font-mono">Embedded · Game</span></div>
+          <h3 class="font-display">Hill Climb Racing</h3>
+          <p>A Hill Climb Racing-style game written in C++ for an ESP32 and an OLED display — physics, terrain and rendering on a tiny microcontroller.</p>
+          <div class="chip-row"><span class="chip">C++</span><span class="chip">ESP32</span><span class="chip">OLED</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#f34b7d"></i>C++</span><span class="project-link gold">GitHub <span class="arrow">→</span></span></div>
+        </div>
+      </a>
+      <a href="https://github.com/abhijithk-ak/ESP32-C3-I2S-Audio-Spectrum-Visualizer" target="_blank" rel="noopener" class="project-card" data-cat="embedded" data-reveal data-delay="80">
+        <div class="project-media">
+          <svg class="art" viewBox="0 0 300 164" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="gFft" gradientUnits="userSpaceOnUse" x1="30" y1="0" x2="270" y2="0">
+                <stop offset="0" stop-color="#6C7BFF"/><stop offset="1" stop-color="#C9A227"/>
+              </linearGradient>
+            </defs>
+            <line class="a-line" x1="24" y1="134" x2="276" y2="134"/>
+            <g data-mode="fft" data-n="34" data-x0="30" data-step="7.2" data-w="4.4" data-base="134" data-max="104"></g>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-gold"></span><span class="font-mono">Audio · DSP</span></div>
+          <h3 class="font-display">Audio Spectrum Visualizer</h3>
+          <p>An ESP32-C3 spectrum analyzer with an INMP441 I2S microphone and an SSD1306 / SH1106 OLED — 32-band FFT, startup noise calibration, four display modes and persistent settings.</p>
+          <div class="chip-row"><span class="chip">C++</span><span class="chip">ESP32-C3</span><span class="chip">I2S</span><span class="chip">FFT</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#f34b7d"></i>C++</span><span class="project-link gold">GitHub <span class="arrow">→</span></span></div>
+        </div>
+      </a>
+      <a href="https://peak-form-gym-website.vercel.app" target="_blank" rel="noopener" class="project-card" data-cat="web" data-reveal data-delay="160">
+        <div class="project-media project-media--preview">
+          <iframe
+            class="project-preview"
+            src="https://peak-form-gym-website.vercel.app"
+            title="PeakForm live website preview"
+            loading="lazy"
+            tabindex="-1"
+            aria-hidden="true"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <span class="status-pill font-mono">Live demo</span>
+        </div>
+        <div class="project-body">
+          <div class="project-kicker"><span class="tag-dot dot-indigo"></span><span class="font-mono">Frontend</span></div>
+          <h3 class="font-display">PeakForm</h3>
+          <p>A premium gym website with a content-driven architecture — swap one data file and it reskins for a new client — plus dark/light theming, animated transitions, a filterable class grid and an EmailJS contact form.</p>
+          <div class="chip-row"><span class="chip">React 18</span><span class="chip">Vite</span><span class="chip">Framer Motion</span></div>
+          <div class="project-foot font-mono"><span class="lang"><i class="ldot" style="background:#f1e05a"></i>JavaScript</span><span class="project-link">Live demo ↗ <span class="arrow">→</span></span></div>
+        </div>
+      </a>
     </div>
 
-    <div data-aos="fade-up" class="mt-12 text-center">
-      <a href="https://github.com/abhijithk-ak?tab=repositories" target="_blank" rel="noopener"
-         class="font-mono text-xs text-[var(--ink-dim)] hover:text-[var(--ink)] transition-colors">
-        See all repositories on GitHub →
-      </a>
+    <div class="projects-more" data-reveal>
+      <button id="more-btn" class="more-btn font-mono" aria-expanded="false" aria-controls="more-wrap">
+        <span class="more-label">Show other projects (3)</span> <span class="more-icon">+</span>
+      </button>
     </div>
+    <div id="more-wrap" class="more-wrap"><div class="more-inner">
+      <div class="other-grid">
+        <a href="https://github.com/abhijithk-ak/InterviewAce" target="_blank" rel="noopener" class="other-item">
+          <div><h4 class="font-display">InterviewAce</h4><p>Hybrid NLP + ML engine scoring interview answers across 13+ technical domains, with MongoDB persistence and an analytics dashboard. UI in progress.</p></div>
+          <span class="project-link font-mono">GitHub <span class="arrow">→</span></span>
+        </a>
+        <a href="https://github.com/abhijithk-ak/Indian-Rainfall-Prediction" target="_blank" rel="noopener" class="other-item">
+          <div><h4 class="font-display">Indian Rainfall Prediction</h4><p>Comparative ML study — Naive Bayes, Random Forest, SVM, KNN and Decision Tree — on historical rainfall data.</p></div>
+          <span class="project-link font-mono">GitHub <span class="arrow">→</span></span>
+        </a>
+        <a href="https://github.com/abhijithk-ak/Deskbot" target="_blank" rel="noopener" class="other-item">
+          <div><h4 class="font-display">Deskbot</h4><p>ESP32 desktop robot with animated OLED eyes and autonomous movement — the earlier prototype that led to EVA.</p></div>
+          <span class="project-link font-mono gold">GitHub <span class="arrow">→</span></span>
+        </a>
+      </div>
+      <div class="projects-more"><a href="https://github.com/abhijithk-ak?tab=repositories" target="_blank" rel="noopener" class="font-mono">See all repositories on GitHub →</a></div>
+    </div></div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section id="contact" class="relative w-full py-24 md:py-28 px-6 md:px-10 border-t border-[var(--border)]">
-  <div class="max-w-3xl mx-auto">
-    <div data-aos="fade-up" class="mb-12">
-      <div class="font-mono text-xs text-[var(--gold)] mb-4">03 — Get in touch</div>
-      <h2 class="font-display font-semibold text-3xl md:text-4xl mb-4">Let's build something together.</h2>
-      <p class="text-[var(--ink-dim)] leading-relaxed max-w-xl">
-        Have a role, a project, or just want to talk frontend and AI? Send a
-        message and I'll get back to you.
-      </p>
+<section id="contact" class="section">
+  <div class="section-inner contact-inner">
+    <div class="contact-head" data-reveal>
+      <div class="eyebrow font-mono accent-gold">03 — Get in touch</div>
+      <h2 class="section-title font-display">Let's build something together.</h2>
+      <p class="lede">Have a role, a project, or just want to talk full-stack and AI? Send a message and I'll get back to you.</p>
     </div>
 
-    <form id="contact-form" data-aos="fade-up" data-aos-delay="80" class="grid md:grid-cols-2 gap-x-8 gap-y-7">
-      <div>
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Name</label>
-        <input id="cf-name" required type="text" placeholder="Your name"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+    <form id="contact-form" class="contact-form" data-reveal data-delay="80">
+      <div class="field">
+        <label class="font-mono" for="cf-name">Name</label>
+        <input id="cf-name" required type="text" placeholder="Your name" />
       </div>
-      <div>
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Email</label>
-        <input id="cf-email" required type="email" placeholder="you@example.com"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50" />
+      <div class="field">
+        <label class="font-mono" for="cf-email">Email</label>
+        <input id="cf-email" required type="email" placeholder="you@example.com" />
       </div>
-      <div class="md:col-span-2">
-        <label class="block font-mono text-[11px] text-[var(--ink-dim)] mb-2">Message</label>
-        <textarea id="cf-message" required rows="3" placeholder="What are you building?"
-          class="w-full bg-transparent border-b border-[var(--border)] pb-3 text-base focus:border-[var(--indigo)] transition-colors placeholder-[var(--ink-dim)]/50 resize-none"></textarea>
+      <div class="field field--full">
+        <label class="font-mono" for="cf-message">Message</label>
+        <textarea id="cf-message" required rows="3" placeholder="What are you building?"></textarea>
       </div>
-      <div class="md:col-span-2 flex items-center justify-between flex-wrap gap-6 mt-2">
-        <div class="flex gap-5 font-mono text-xs text-[var(--ink-dim)]">
-          <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
-          <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
-          <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">Email</a>
+      <div class="field--full contact-actions">
+        <div class="contact-links font-mono">
+          <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:ak.abhijithk@gmail.com">Email</a>
         </div>
-        <button type="submit"
-          class="btn-primary px-7 py-3 rounded-full bg-[var(--indigo)] text-[#0B0C10] font-semibold text-sm inline-flex items-center gap-2 hover:bg-[#8290ff] transition-colors">
-          Send Message
-          <span>→</span>
+        <button type="submit" class="btn-primary">
+          Send Message <span>→</span>
         </button>
       </div>
-      <p id="cf-status" class="md:col-span-2 font-mono text-xs text-[var(--ink-dim)] hidden"></p>
+      <p id="cf-status" class="font-mono hidden"></p>
     </form>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="w-full border-t border-[var(--border)] py-8 px-6 md:px-10">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-xs text-[var(--ink-dim)]">
+<footer>
+  <div class="section-inner footer-inner font-mono">
     <span>© 2026 Abhijith K.</span>
-    <div class="flex gap-6">
-      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener" class="hover:text-[var(--ink)] transition-colors">LinkedIn</a>
-      <a href="mailto:ak.abhijithk@gmail.com" class="hover:text-[var(--ink)] transition-colors">ak.abhijithk@gmail.com</a>
+    <div class="footer-links">
+      <a href="https://github.com/abhijithk-ak" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/abhijithkak/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:ak.abhijithk@gmail.com">ak.abhijithk@gmail.com</a>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 700, once: true, easing: 'ease-out' });
-
   // preloader
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('preloader').classList.add('hide'), 300);
@@ -356,11 +396,7 @@
   // navbar background on scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
-    } else {
-      navbar.classList.remove('bg-[#101114]/90', 'backdrop-blur-sm', 'border-b', 'border-[var(--border)]');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
 
   // mobile menu
@@ -371,13 +407,13 @@
   let menuOpen = false;
   menuBtn.addEventListener('click', () => {
     menuOpen = !menuOpen;
-    mobileMenu.style.maxHeight = menuOpen ? mobileMenu.scrollHeight + 'px' : '0px';
+    mobileMenu.classList.toggle('open', menuOpen);
     iconOpen.classList.toggle('hidden', menuOpen);
     iconClose.classList.toggle('hidden', !menuOpen);
   });
   document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => {
     menuOpen = false;
-    mobileMenu.style.maxHeight = '0px';
+    mobileMenu.classList.remove('open');
     iconOpen.classList.remove('hidden');
     iconClose.classList.add('hidden');
   }));
@@ -393,8 +429,21 @@
   window.addEventListener('scroll', updateProgress);
   updateProgress();
 
+  // scroll reveal — replaces the AOS dependency with a small IntersectionObserver
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.getAttribute('data-delay') || 0;
+        setTimeout(() => el.classList.add('is-visible'), Number(delay));
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach((el) => io.observe(el));
+
   // contact form: opens the visitor's email client with a pre-filled message
-  // addressed to ak.abhijithk@gmail.com — no backend/server required.
   const YOUR_EMAIL = 'ak.abhijithk@gmail.com';
   const cfForm = document.getElementById('contact-form');
   const cfStatus = document.getElementById('cf-status');
@@ -415,6 +464,112 @@
       cfStatus.classList.remove('hidden');
     });
   }
+
+  // ---- project filters ----
+  const filters=document.querySelectorAll('.filter'), cards=document.querySelectorAll('#project-grid .project-card');
+  filters.forEach(f=>f.addEventListener('click',()=>{
+    filters.forEach(x=>x.classList.toggle('active',x===f));
+    const k=f.dataset.filter; let i=0;
+    cards.forEach(cd=>{
+      const show=k==='all'||cd.dataset.cat===k;
+      cd.classList.toggle('is-gone',!show);
+      if(show){cd.style.animationDelay=(i++*70)+'ms';cd.classList.remove('pop');void cd.offsetWidth;cd.classList.add('pop');cd.classList.add('is-visible');}
+    });
+  }));
+
+  // ---- other projects toggle ----
+  const moreBtn=document.getElementById('more-btn'), moreWrap=document.getElementById('more-wrap');
+  moreBtn.addEventListener('click',()=>{
+    const open=moreWrap.classList.toggle('open');
+    moreBtn.setAttribute('aria-expanded',open);
+    moreBtn.querySelector('.more-label').textContent=open?'Hide other projects':'Show other projects (3)';
+    moreBtn.querySelector('.more-icon').textContent=open?'−':'+';
+  });
+
+  // ---- equalizer bars ----
+  document.querySelectorAll('.bars').forEach(el=>{
+    const n=+el.dataset.n;
+    for(let i=0;i<n;i++){const s=document.createElement('span');
+      s.style.setProperty('--h',(25+Math.abs(Math.sin(i*.7)*55)+Math.random()*15)+'%');
+      s.style.animationDelay=(-Math.random()*1.6)+'s';el.appendChild(s);}
+  });
+
+  // ---- spectrum visualizer bars ----
+  document.querySelectorAll('[data-mode="fft"]').forEach(group=>{
+    const n=Number(group.dataset.n);
+    const x0=Number(group.dataset.x0);
+    const step=Number(group.dataset.step);
+    const width=Number(group.dataset.w);
+    const base=Number(group.dataset.base);
+    const max=Number(group.dataset.max);
+    for(let i=0;i<n;i++){
+      const height=Math.min(max,12+Math.abs(Math.sin(i*.47)*45)+Math.abs(Math.sin(i*.13+1)*35));
+      const bar=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      bar.setAttribute('class','fb');
+      bar.setAttribute('x',String(x0+i*step));
+      bar.setAttribute('y',String(base-height));
+      bar.setAttribute('width',String(width));
+      bar.setAttribute('height',String(height));
+      bar.style.animationDelay=`-${(i%10)*.13}s`;
+      group.appendChild(bar);
+    }
+  });
+
+  // ---- space / tech / AI background ----
+  (function(){
+    const cv=document.getElementById('bg-canvas'), ctx=cv.getContext('2d');
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W,H,DPR=Math.min(devicePixelRatio||1,2),mx=0,my=0;
+    const stars=[],nodes=[],glyphs=[],shoots=[];
+    const G=['</>','01','{ }','AI','10','=>','[ ]','0x','λ','::'];
+    function size(){W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+    function init(){
+      stars.length=nodes.length=glyphs.length=0;
+      const area=W*H/1e4;
+      for(let i=0;i<Math.min(160,area*1.1);i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,t:Math.random()*6.28,s:Math.random()*.02+.005,z:Math.random()*.6+.2});
+      for(let i=0;i<Math.min(48,area*.35);i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,gold:Math.random()<.18});
+      for(let i=0;i<14;i++)glyphs.push({x:Math.random()*W,y:Math.random()*H,v:Math.random()*.25+.08,t:G[i%G.length],a:Math.random()*.12+.05,f:Math.random()*8+10});
+    }
+    function frame(){
+      ctx.clearRect(0,0,W,H);
+      for(const s of stars){
+        s.t+=s.s; const a=.35+Math.sin(s.t)*.3;
+        ctx.globalAlpha=Math.max(.05,a);ctx.fillStyle='#cfd4ff';
+        ctx.beginPath();ctx.arc(s.x+mx*s.z*14,s.y+my*s.z*14,s.r,0,6.28);ctx.fill();
+      }
+      ctx.lineWidth=.6;
+      for(let i=0;i<nodes.length;i++){
+        const n=nodes[i];
+        if(!reduce){n.x+=n.vx;n.y+=n.vy;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;}
+        for(let j=i+1;j<nodes.length;j++){
+          const m=nodes[j],d=Math.hypot(n.x-m.x,n.y-m.y);
+          if(d<130){ctx.globalAlpha=(1-d/130)*.22;ctx.strokeStyle=n.gold?'#C9A227':'#6C7BFF';ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);ctx.stroke();}
+        }
+        ctx.globalAlpha=.55;ctx.fillStyle=n.gold?'#C9A227':'#8f9bff';
+        ctx.beginPath();ctx.arc(n.x,n.y,1.6,0,6.28);ctx.fill();
+      }
+      ctx.font='12px "IBM Plex Mono", monospace';
+      for(const g of glyphs){
+        if(!reduce){g.y-=g.v;if(g.y<-20){g.y=H+20;g.x=Math.random()*W;}}
+        ctx.globalAlpha=g.a;ctx.fillStyle='#93969E';ctx.font=g.f+'px "IBM Plex Mono", monospace';ctx.fillText(g.t,g.x,g.y);
+      }
+      if(!reduce){
+        if(Math.random()<.004&&shoots.length<2)shoots.push({x:Math.random()*W*.8+W*.2,y:Math.random()*H*.4,l:0});
+        for(let i=shoots.length-1;i>=0;i--){
+          const s=shoots[i];s.x-=9;s.y+=4;s.l++;
+          const g=ctx.createLinearGradient(s.x,s.y,s.x+80,s.y-36);
+          g.addColorStop(0,'rgba(255,255,255,.9)');g.addColorStop(1,'rgba(255,255,255,0)');
+          ctx.globalAlpha=1;ctx.strokeStyle=g;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x+80,s.y-36);ctx.stroke();
+          if(s.l>70)shoots.splice(i,1);
+        }
+      }
+      ctx.globalAlpha=1;
+      if(!reduce)requestAnimationFrame(frame);
+    }
+    addEventListener('mousemove',e=>{mx=e.clientX/W-.5;my=e.clientY/H-.5;});
+    addEventListener('resize',()=>{size();init();if(reduce)frame();});
+    size();init();frame();
+  })();
 </script>
 </body>
 </html>
